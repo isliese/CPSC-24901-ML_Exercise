@@ -1,13 +1,12 @@
-# Supervised learning for linear regression - multiple_reg.py
-
+import os
 import numpy as np
 import pandas as pd
 import csv
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 
-# 일단 절대 경로 사용
-file_path = r"C:\Users\sally\OneDrive\바탕 화면\OneDrive - 숙명여자대학교\3학년 1학기 (CSUF)\정규 수업\Applied AI\ML_Exercise\1linear_regression\Q2.csv"
+script_dir = os.path.dirname(os.path.abspath(__file__)) 
+file_path = os.path.join(script_dir, "Q2.csv")  # Relative path
 
 def csv_file_loader(file_name):
     with open(file_name, 'r', newline='') as csvfile:
@@ -16,7 +15,6 @@ def csv_file_loader(file_name):
     return data
 
 data = csv_file_loader(file_path)
-
 
 # Convert data to NumPy array and separate X and y
 data = np.array(data[1:], dtype=float)  # Assuming first row is header

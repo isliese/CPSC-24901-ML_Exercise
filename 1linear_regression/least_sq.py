@@ -3,6 +3,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import os
 
 # Load data from CSV file
 def load_data(file_name):
@@ -31,15 +32,17 @@ def predict(X, b0, b1):
 
 # Plot results
 def plot_regression(X, y, b0, b1):
-    plt.scatter(X, y, color='blue', label='Data points')
-    plt.plot(X, predict(X, b0, b1), color='red', label='Least Squares Fit')
+    plt.scatter(X, y, color='blue', label='Data points')  
+    plt.plot(X, predict(X, b0, b1), color='red', linewidth=1, label='Least Squares Fit')  # 회귀선 (얇게 설정)
     plt.xlabel('X')
     plt.ylabel('y')
     plt.legend()
     plt.show()
 
 if __name__ == "__main__":
-    file_name = r"C:\Users\sally\OneDrive\바탕 화면\OneDrive - 숙명여자대학교\3학년 1학기 (CSUF)\정규 수업\Applied AI\ML_Exercise\1linear_regression\Q2.csv"
+    base_dir = os.path.dirname(__file__) 
+    file_name = os.path.join(base_dir, "Q2.csv")
+
     X, y = load_data(file_name)
     b0, b1 = least_squares(X, y)
     
