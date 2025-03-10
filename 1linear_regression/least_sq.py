@@ -33,7 +33,7 @@ def predict(X, b0, b1):
 # Plot results
 def plot_regression(X, y, b0, b1):
     plt.scatter(X, y, color='blue', label='Data points')  
-    plt.plot(X, predict(X, b0, b1), color='red', linewidth=1, label='Least Squares Fit')  # 회귀선 (얇게 설정)
+    plt.plot(X, predict(X, b0, b1), color='red', linewidth=1, label='Least Squares Fit') 
     plt.xlabel('X')
     plt.ylabel('y')
     plt.legend()
