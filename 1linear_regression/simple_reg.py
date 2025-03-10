@@ -62,53 +62,49 @@ plt.show()
 
 
 # Error Calculation for first dataset
-# 첫 번째 데이터셋에 대한 오류 계산
 
-# 예측값을 계산
+# Calculate expected error
 y_pred1 = model1.predict(X1)
-errors1 = Y1 - y_pred1  # 실제 값과 예측 값의 차이
-total_error1 = np.sum(errors1)  # 총 오류: ∑(yi - ŷi)
-squared_errors1 = errors1 ** 2  # 제곱 오류: (yi - ŷi)²
-sum_squared_error1 = np.sum(squared_errors1)  # 제곱 오류의 합: ∑(yi - ŷi)²
-mean_squared_error1 = np.mean(squared_errors1)  # 평균 제곱 오류(MSE): (1/N)∑(yi - ŷi)²
-root_mean_squared_error1 = np.sqrt(mean_squared_error1)  # 평균 제곱근 오류(RMSE): √(1/N)∑(yi - ŷi)²
+errors1 = Y1 - y_pred1  # Difference between real value and expected value
+total_error1 = np.sum(errors1)  # Total Error: ∑(yi - ŷi)
+squared_errors1 = errors1 ** 2  # Squared Error: (yi - ŷi)²
+sum_squared_error1 = np.sum(squared_errors1)  # Sum of Squared Error: ∑(yi - ŷi)²
+mean_squared_error1 = np.mean(squared_errors1)  # Mean Squared Error(MSE): (1/N)∑(yi - ŷi)²
+root_mean_squared_error1 = np.sqrt(mean_squared_error1)  # Root Mean Squared Error(RMSE): √(1/N)∑(yi - ŷi)²
 
 print("\nFirst dataset error calculations:")
-print(f"Total Error: {total_error1:.2f}")  # 총 오류 출력
-print(f"Sum of Squared Errors (SSE): {sum_squared_error1:.2f}")  # 제곱 오류 합 출력
-print(f"Mean Squared Error (MSE): {mean_squared_error1:.2f}")  # 평균 제곱 오류 출력
-print(f"Root Mean Squared Error (RMSE): {root_mean_squared_error1:.2f}")  # 제곱근 평균 제곱 오류 출력
+print(f"Total Error: {total_error1:.2f}")  
+print(f"Sum of Squared Errors (SSE): {sum_squared_error1:.2f}")  
+print(f"Mean Squared Error (MSE): {mean_squared_error1:.2f}")  
+print(f"Root Mean Squared Error (RMSE): {root_mean_squared_error1:.2f}")  
 
 # Error Calculation for second dataset
-# 두 번째 데이터셋에 대한 오류 계산
 
-# 예측값을 계산
+# Calculate expected error
 y_pred2 = model2.predict(X2)
-errors2 = Y2 - y_pred2  # 실제 값과 예측 값의 차이
-total_error2 = np.sum(errors2)  # 총 오류: ∑(yi - ŷi)
-squared_errors2 = errors2 ** 2  # 제곱 오류: (yi - ŷi)²
-sum_squared_error2 = np.sum(squared_errors2)  # 제곱 오류의 합: ∑(yi - ŷi)²
-mean_squared_error2 = np.mean(squared_errors2)  # 평균 제곱 오류(MSE): (1/N)∑(yi - ŷi)²
-root_mean_squared_error2 = np.sqrt(mean_squared_error2)  # 평균 제곱근 오류(RMSE): √(1/N)∑(yi - ŷi)²
+errors2 = Y2 - y_pred2  # Difference between real value and expected value
+total_error2 = np.sum(errors2) # Total Error: ∑(yi - ŷi)
+squared_errors2 = errors2 ** 2  # Squared Error: (yi - ŷi)²
+sum_squared_error2 = np.sum(squared_errors2)  # Sum of Squared Error: ∑(yi - ŷi)²
+mean_squared_error2 = np.mean(squared_errors2)  # Mean Squared Error(MSE): (1/N)∑(yi - ŷi)²
+root_mean_squared_error2 = np.sqrt(mean_squared_error2)  # Root Mean Squared Error(RMSE): √(1/N)∑(yi - ŷi)²
 
 print("\nSecond dataset error calculations:")
-print(f"Total Error: {total_error2:.2f}")  # 총 오류 출력
-print(f"Sum of Squared Errors (SSE): {sum_squared_error2:.2f}")  # 제곱 오류 합 출력
-print(f"Mean Squared Error (MSE): {mean_squared_error2:.2f}")  # 평균 제곱 오류 출력
-print(f"Root Mean Squared Error (RMSE): {root_mean_squared_error2:.2f}")  # 제곱근 평균 제곱 오류 출력
+print(f"Total Error: {total_error2:.2f}")
+print(f"Sum of Squared Errors (SSE): {sum_squared_error2:.2f}") 
+print(f"Mean Squared Error (MSE): {mean_squared_error2:.2f}")  
+print(f"Root Mean Squared Error (RMSE): {root_mean_squared_error2:.2f}") 
 
 # Comparison and Explanation of Error Measures
-# 오류 측정값의 비교와 설명
 
 print("\nComparison of error measures:")
-print("1. Total Error는 실제 값과 예측 값의 차이를 단순히 더한 값입니다. "
-      "하지만 이 값은 오류의 크기나 데이터 포인트 수를 고려하지 않기 때문에 다소 misleading할 수 있습니다.")
-print("2. Sum of Squared Errors (SSE)는 오류가 클수록 더 큰 값을 가지게 되어, 모델이 데이터에 얼마나 잘 맞는지 확인하는 데 유용합니다. "
-      "하지만 데이터 포인트의 수나 데이터의 크기를 고려하지 않습니다.")
-print("3. Mean Squared Error (MSE)는 제곱 오류의 평균을 내므로, 데이터 포인트 수에 대한 영향을 고려할 수 있습니다. "
-      "모델을 비교할 때 유용한 척도가 됩니다.")
-print("4. Root Mean Squared Error (RMSE)는 MSE의 제곱근으로, 오류 값을 원래 데이터의 단위로 되돌려주기 때문에 더 직관적입니다.")
+print("1. Total Error is simply the sum of the differences between actual and predicted values. "
+      "However, this measure can be misleading because it does not account for the magnitude of errors or the number of data points.")
+print("2. Sum of Squared Errors (SSE) increases significantly as errors grow, making it useful for assessing how well the model fits the data. "
+      "However, it does not consider the number of data points or the scale of the data.")
+print("3. Mean Squared Error (MSE) calculates the average of squared errors, taking the number of data points into account. "
+      "It is a useful metric for comparing models.")
+print("4. Root Mean Squared Error (RMSE) is the square root of MSE, which converts the error back to the original unit of the data, making it more intuitive.")
 
-# MSE와 RMSE는 데이터의 크기나 포인트 수에 관계없이 모델의 성능을 비교할 때 더 유용한 오류 측정값입니다.
-# RMSE는 해석하기 쉬운 단위를 제공하여, 실제 오류의 크기를 더 명확히 알 수 있게 해줍니다.
-
+# MSE and RMSE are more useful for comparing model performance regardless of data size or the number of points.
+# RMSE provides an error measure in the same unit as the data, making it easier to interpret the actual magnitude of errors.
